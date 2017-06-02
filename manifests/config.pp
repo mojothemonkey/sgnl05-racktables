@@ -12,6 +12,17 @@ class racktables::config (
   case $secretfile {
 
     'template': {
+      $db_username           = $racktables::db_username
+      $db_password           = $racktables::db_password
+      $db_name               = $racktables::db_name
+      $db_host               = $racktables::db_host
+      $user_auth_src         = $racktables::user_auth_src
+      $require_local_account = $racktables::require_local_account
+      $pdo_bufsize           = $racktables::pdo_bufsize
+      $ldap_options          = $racktables::ldap_options
+      $saml_options          = $racktables::saml_options
+      $helpdesk_banner       = $racktables::helpdesk_banner
+
       file { "${datadir}/wwwroot/inc/secret.php":
         ensure  => present,
         owner   => $apacheuser,
